@@ -6,11 +6,11 @@ import { findByTestAttributes, checkPropError } from "./../../../Utils";
 describe("(01) AppButton Component", () => {
   describe("Prop Types", () => {
     test("Checking propTypes", () => {
-      const expectedprops = {
+      const expectedProps = {
         buttonText: "Test String",
         emitAction: () => {},
       };
-      const propsError = checkPropError(AppButton, expectedprops);
+      const propsError = checkPropError(AppButton, expectedProps);
       expect(propsError).toBeUndefined();
     });
   });

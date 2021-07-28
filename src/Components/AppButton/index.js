@@ -19,7 +19,7 @@ class AppButton extends Component {
 }
 
 AppButton.propTypes = {
-  buttonText: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
   emitAction: PropTypes.func.isRequired,
 };
 
