@@ -11,7 +11,11 @@ class AppButton extends Component {
   render() {
     const { buttonText } = this.props;
     return (
-      <Button data-test="appButton" onClick={() => this.submitEvent()}>
+      <Button
+        data-test="appButton"
+        style={{ marginTop: "auto", marginBottom: "0.5rem" }}
+        onClick={() => this.submitEvent()}
+      >
         {buttonText}
       </Button>
     );
@@ -20,7 +24,7 @@ class AppButton extends Component {
 
 AppButton.propTypes = {
   buttonText: PropTypes.string,
-  emitAction: PropTypes.func.isRequired,
+  emitAction: PropTypes.func,
 };
 
 export default AppButton;
