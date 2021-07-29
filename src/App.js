@@ -6,6 +6,7 @@ import useFetch from "./FetchApi/useFetch";
 
 function App() {
   const { data, loading, error } = useFetch();
+  console.log(data);
   return (
     <>
       <NavBar />
