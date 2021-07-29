@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import AppButton from "../AppButton";
 import { Card } from "react-bootstrap";
 import PropTypes from "prop-types";
-import AppButton from "../AppButton";
 
-class ItemCard extends Component {
+class CartItem extends Component {
   render() {
-    const { image, title, price } = this.props.data;
+    const { image, title, price, amount } = this.props.data;
     return (
       <Card
         style={{
@@ -30,22 +30,42 @@ class ItemCard extends Component {
         >
           <Card.Title>{title}</Card.Title>
           <Card.Text>{price}</Card.Text>
-          <AppButton
-            data-test="appButton"
-            emitAction={() => this.props.addToCart(this.props.data)}
-            buttonText="Add To Cart"
-          />
+          <Card.Text>{amount * price}</Card.Text>
+          <div
+            style={{
+              display: "flex",
+              margin: "auto",
+              justifyContent: "space-around",
+              width: "70%",
+            }}
+          >
+            <AppButton
+              buttonText="-"
+              emitAction={() => this.props.removeFromCart(this.props.data.id)}
+              style={{
+                margin: "auto",
+              }}
+            />
+            {amount}
+            <AppButton
+              buttonText="+"
+              emitAction={() => this.props.addToCart(this.props.data)}
+              style={{
+                margin: "auto",
+              }}
+            />
+          </div>
         </Card.Body>
       </Card>
     );
   }
 }
 
-ItemCard.propTypes = {
+CartItem.propTypes = {
   image: PropTypes.any,
   title: PropTypes.string,
   price: PropTypes.number,
   emitAction: PropTypes.func,
 };
 
-export default ItemCard;
+export default CartItem;

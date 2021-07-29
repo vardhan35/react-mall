@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { checkPropError, findByTestAttributes } from "./../../../Utils";
-import ItemCard from "./";
+import CartItem from "./";
 import IMG from "./../../../public/profile.jpg";
 
-describe("(03) Component ItemCard", () => {
+describe("(04) Component CartItem", () => {
   describe("Checking PropTypes", () => {
     test("should Not throw Error On propTypes", () => {
       const expectedProps = {
@@ -13,7 +13,7 @@ describe("(03) Component ItemCard", () => {
         desc: "test String",
         emitAction: () => {},
       };
-      const propsError = checkPropError(ItemCard, expectedProps);
+      const propsError = checkPropError(CartItem, expectedProps);
       expect(propsError).toBeUndefined();
     });
   });
@@ -27,11 +27,11 @@ describe("(03) Component ItemCard", () => {
         desc: "test String",
         emitAction: () => {},
       };
-      wrapper = shallow(<ItemCard {...props} />);
+      wrapper = shallow(<CartItem {...props} />);
     });
-    test("should Render AppButton without Error", () => {
-      const card = findByTestAttributes(wrapper, "itemCard");
-      expect(card.length).toBe(1);
+    test("should Render CartItem without Error", () => {
+      const cartItem = findByTestAttributes(wrapper, "cartItem");
+      expect(cartItem.length).toBe(1);
     });
   });
 });
