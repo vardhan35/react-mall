@@ -6,9 +6,8 @@ import {
   FETCH_API_SUCCESS,
   FETCH_API_FAILURE,
 } from "./ActionTypes";
-const BASE_URL = "https://fakestoreapi.com/products/";
 
-export default function useFetch(params = "") {
+export default function useFetch(params) {
   const [state, dispatch] = useReducer(fetchReducer, {
     data: [],
     loading: true,
@@ -19,7 +18,6 @@ export default function useFetch(params = "") {
     axios
       .get("https://fakestoreapi.com/products/" + params)
       .then((response) => {
-        console.log(response.data);
         dispatch({
           type: FETCH_API_SUCCESS,
           payload: { data: response.data },
