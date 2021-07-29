@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import AppButton from "../AppButton";
+
 class ItemCard extends Component {
   render() {
     const { image, title, price } = this.props.data;
@@ -30,8 +31,8 @@ class ItemCard extends Component {
           <Card.Title>{title}</Card.Title>
           <Card.Text>{price}</Card.Text>
           <AppButton
-            emitAction={this.props.emitAction}
             data-test="appButton"
+            emitAction={() => this.props.addToCart(this.props.data)}
             buttonText="Add To Cart"
           />
         </Card.Body>
